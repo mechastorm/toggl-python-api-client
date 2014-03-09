@@ -29,7 +29,7 @@ class ToogleClientApiTests(unittest.TestCase):
         my_ver_no = 12
         credentials = {
             'base_url': my_base_url,
-            'ver': my_ver_no
+            'ver_api': my_ver_no
         }
         self.api = TogglClientApi(credentials, requests)
         self.assertEqual(self.api.api_base_url, my_base_url + '/v' + str(my_ver_no))
@@ -60,6 +60,20 @@ class ToogleClientApiTests(unittest.TestCase):
         response = self.api.get_workspace_members(workspace['id'])
         self.assertEqual(response.status_code, requests.codes.ok)
 
-    def _api_toggl_get_member_total_hours_range_response_ok(self):
-        response = self.api.get_user_hours_range(workspace_user_id, start_date, end_date)
-        self.assertEqual(response.status_code, requests.codes.ok)
+    def test_api_toggl_get_member_total_hours_range_response_ok(self):
+        workspace_id = 375350
+        user_id = 491983
+        start_date = '2014-03-03'
+        end_date = '2014-03-07'
+        total = self.api.get_user_hours_range(
+            'toggl-python-api-client-nosetests',
+            workspace_id,
+            user_id,
+            start_date,
+            end_date
+        )
+
+        import datetime
+        d = datetime.timedelta(total)
+
+        self.assertGreater(total, 0)
