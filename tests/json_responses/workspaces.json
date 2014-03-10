@@ -1,0 +1,53 @@
+[
+    {
+        "id":111110,
+        "name":"a company",
+        "premium":true,
+        "admin":true,
+        "default_hourly_rate":0,
+        "default_currency":"CAD",
+        "only_admins_may_create_projects":true,
+        "only_admins_see_billable_rates":true,
+        "only_admins_see_team_dashboard":false,
+        "projects_billable_by_default":true,
+        "rounding":0,
+        "rounding_minutes":1,
+        "at":"2013-07-04T02:24:45+00:00",
+        "logo_url":"https://workspace.url/logo.png",
+        "ical_url":"/ical/workspace_user/icaluser"
+    },
+    {
+        "id":111110,
+        "name":"A Company's House",
+        "premium":true,
+        "admin":true,
+        "default_hourly_rate":0,
+        "default_currency":"CAD",
+        "only_admins_may_create_projects":true,
+        "only_admins_see_billable_rates":true,
+        "only_admins_see_team_dashboard":false,
+        "projects_billable_by_default":true,
+        "rounding":0,
+        "rounding_minutes":1,
+        "at":"2013-07-04T02:24:45+00:00",
+        "logo_url":"https://workspace.url/logo.png",
+        "ical_url":"/ical/workspace_user/icaluser"
+    },
+    {
+        "id":111111,
+        "name":"A Company",
+        "premium":true,
+        "admin":true,
+        "default_hourly_rate":0,
+        "default_currency":"CAD",
+        "only_admins_may_create_projects":true,
+        "only_admins_see_billable_rates":true,
+        "only_admins_see_team_dashboard":false,
+        "projects_billable_by_default":true,
+        "rounding":0,
+        "rounding_minutes":1,
+        "at":"2013-07-04T02:24:45+00:00",
+        "logo_url":"https://workspace.url/logo.png",
+        "ical_url":"/ical/workspace_user/icaluser"
+    }
+]
