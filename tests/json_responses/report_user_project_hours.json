@@ -1,0 +1,117 @@
+{
+   "total_grand":149362000,
+   "total_billable":19848000,
+   "total_currencies":[
+      {
+         "currency":"MYR",
+         "amount":59.25
+      }
+   ],
+   "data":[
+      {
+         "id":222222,
+         "title":{
+            "user":"John Doe"
+         },
+         "time":149362000,
+         "total_currencies":[
+            {
+               "currency":"MYR",
+               "amount":59.25
+            }
+         ],
+         "items":[
+            {
+               "title":{
+                  "project":"A-ko",
+                  "client":"Central Park Media"
+               },
+               "time":5624000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            },
+            {
+               "title":{
+                  "project":"B-ko",
+                  "client":"Central Park Media"
+               },
+               "time":5767000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            },
+            {
+               "title":{
+                  "project":"C-ko",
+                  "client":"Central Park Media"
+               },
+               "time":3281000,
+               "cur":"MYR",
+               "sum":59.25,
+               "rate":65.0000000000000000
+            },
+            {
+               "title":{
+                  "project":"E-ko",
+                  "client":"Central Park Media"
+               },
+               "time":9000000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            },
+            {
+               "title":{
+                  "project":"F-ko",
+                  "client":"Central Park Media"
+               },
+               "time":41533000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            },
+            {
+               "title":{
+                  "project":"G-ko",
+                  "client":"Central Park Media"
+               },
+               "time":15300000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            },
+            {
+               "title":{
+                  "project":"H-ko",
+                  "client":"Central Park Media"
+               },
+               "time":35065000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            },
+            {
+               "title":{
+                  "project":"I-ko",
+                  "client":"Central Park Media"
+               },
+               "time":30258000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            },
+            {
+               "title":{
+                  "project":"J-ko",
+                  "client":"Central Park Media"
+               },
+               "time":3534000,
+               "cur":"MYR",
+               "sum":0.00,
+               "rate":0.00000000000000000000
+            }
+         ]
+      }
+   ]
+}

@@ -1,4 +1,3 @@
-import logging
 import requests
 
 class TogglClientApi:
@@ -20,14 +19,17 @@ class TogglClientApi:
     workspace_name = None
     requests = None
 
-    def __init__(self, credentials, requests):
+    def __init__(self, credentials):
         self.credentials = dict(self.defaultCredentials.items() + credentials.items())
-        self.api_base_url = self.credentials['base_url'] + '/v' + str(self.credentials['ver_api'])
-        self.api_report_base_url = self.credentials['base_url_report'] + '/v' + str(self.credentials['ver_report'])
+        self.api_base_url = self.build_api_url(self.credentials['base_url'], self.credentials['ver_api'])
+        self.api_report_base_url = self.build_api_url(self.credentials['base_url_report'], self.credentials['ver_report'])
         self.api_token = self.credentials['token']
         self.api_username = self.credentials['username']
-        self.requests = requests
         return
+
+    @staticmethod
+    def build_api_url(base_url, version):
+        return base_url + '/v' + str(version)
 
     def get_workspace_by_name(self, name):
         workspace_found = None
@@ -51,7 +53,6 @@ class TogglClientApi:
         return response
 
     def get_user_hours_range(self, user_agent, workspace_id, user_id, start_date, end_date):
-        time_total = 0
         params = {
             'workspace_id': workspace_id,
             'since': start_date,
@@ -64,10 +65,7 @@ class TogglClientApi:
         projects_worked_response = self.query_report('/summary', params)
 
         json_response = projects_worked_response.json()
-        projects = json_response['data'][0]['items']
-
-        for project in projects:
-            time_total = time_total + project['time']
+        time_total = json_response['data'][0]['time']
 
         return time_total
 
@@ -89,8 +87,6 @@ class TogglClientApi:
             response = self._do_get_query(api_endpoint, headers=toggl_headers, auth=toggl_auth, params=params)
         else:
             response = self._do_get_query(api_endpoint, headers=toggl_headers, auth=toggl_auth, params=params)
-
-        logging.debug(response)
 
         return response
 

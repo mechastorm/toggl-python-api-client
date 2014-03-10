@@ -1,0 +1,38 @@
+[
+   {
+      "id":444440,
+      "uid":333330,
+      "wid":111111,
+      "admin":false,
+      "active":true,
+      "email":"worker-a@a.company",
+      "inactive":false,
+      "at":"2014-01-06T18:59:38+00:00",
+      "name":"Worker A",
+      "avatar_file_name":"https://www.toggl.com/images/profile.png"
+   },
+   {
+      "id":444441,
+      "uid":333331,
+      "wid":111111,
+      "admin":false,
+      "active":true,
+      "email":"worker-b@a.company",
+      "inactive":false,
+      "at":"2014-01-06T18:15:18+00:00",
+      "name":"Worker B",
+      "avatar_file_name":"https://www.toggl.com/images/profile.png"
+   },
+   {
+      "id":444442,
+      "uid":333332,
+      "wid":111111,
+      "admin":true,
+      "active":true,
+      "email":"worker-c@a.company",
+      "inactive":false,
+      "at":"2013-05-09T17:11:11+00:00",
+      "name":"Worker C",
+      "avatar_file_name":"https://www.toggl.com/images/profile.png"
+   }
+]
