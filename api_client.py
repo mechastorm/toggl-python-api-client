@@ -1,5 +1,6 @@
 import requests
 
+
 class TogglClientApi:
 
     defaultCredentials = {
@@ -52,6 +53,10 @@ class TogglClientApi:
         response = self.query('/workspaces/'+str(workspace_id)+'/workspace_users');
         return response
 
+    """
+    @param start_date YYYY-MM-DD
+    @param end_date YYYY-MM-DD
+    """""
     def get_user_hours_range(self, user_agent, workspace_id, user_id, start_date, end_date):
         params = {
             'workspace_id': workspace_id,
@@ -65,7 +70,11 @@ class TogglClientApi:
         projects_worked_response = self.query_report('/summary', params)
 
         json_response = projects_worked_response.json()
-        time_total = json_response['data'][0]['time']
+
+        if len(json_response['data']) > 0:
+            time_total = json_response['data'][0]['time']
+        else:
+            time_total = 0
 
         return time_total
 
@@ -76,7 +85,6 @@ class TogglClientApi:
         return self._query(self.api_base_url, url, params, method)
 
     def _query(self, base_url, url, params, method):
-        response = None
         api_endpoint = base_url + url
         toggl_auth = (self.api_token, 'api_token')
         toggl_headers = {'content-type': 'application/json'}

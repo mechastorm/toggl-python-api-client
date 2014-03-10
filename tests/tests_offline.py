@@ -126,7 +126,13 @@ class ToogleClientApiTests(unittest.TestCase):
 
         self.assertEqual(len(received_data), len(expected_data))
 
-    def test_api_toggl_get_member_total_hours_range_response_ok(self):
+    def test_api_toggl_get_member_total_hours_range_response_ok_with_found_data(self):
+        self.do_test_api_toggl_get_member_total_hours_range_response_ok('report_user_project_hours')
+
+    def test_api_toggl_get_member_total_hours_range_response_ok_with_empty_data(self):
+        self.do_test_api_toggl_get_member_total_hours_range_response_ok('report_user_project_hours_null')
+
+    def do_test_api_toggl_get_member_total_hours_range_response_ok(self, datafile='report_user_project_hours'):
         workspace, expected_workspace = self.setup_test_api_toggl_get_workspace_by_name()
         self.assertEqual(workspace['id'], expected_workspace['id'])
 
@@ -138,7 +144,7 @@ class ToogleClientApiTests(unittest.TestCase):
 
         endpoint_url = self.base_api_report_url + "/summary?" + "workspace_id=" + str(workspace['id']) + "&since=" + start_date + "&until=" + end_date + "&user_agent=" + user_agent + "&user_ids=" + str(user_id) + "&grouping=users" + "&subgrouping=projects"
 
-        expected_response_json_str = json.dumps(self.load_json_file('report_user_project_hours'))
+        expected_response_json_str = json.dumps(self.load_json_file(datafile))
         httpretty.register_uri(
             httpretty.GET,
             endpoint_url,
@@ -146,7 +152,11 @@ class ToogleClientApiTests(unittest.TestCase):
             content_type=self.http_content_type)
 
         expected_response_json = json.loads(expected_response_json_str)
-        expected_total = expected_response_json['data'][0]['time']
+        if len(expected_response_json['data']) > 0:
+            expected_total = expected_response_json['data'][0]['time']
+        else:
+            expected_total = 0
+
         total = self.api.get_user_hours_range(
             user_agent,
             workspace_id,

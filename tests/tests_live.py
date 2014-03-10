@@ -2,7 +2,8 @@ import unittest
 import json
 from ..api_client import TogglClientApi
 
-class ToogleClientApiLiveTests(unittest.TestCase):
+
+class TogglClientApiLiveTests(unittest.TestCase):
 
     api = None
 

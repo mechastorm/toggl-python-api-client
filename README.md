@@ -1,15 +1,23 @@
 toggl-python-api-client
 =======================
 
-Python-based REST client to interface with the Toggle API. Requires the 'requests' lib
+[Toggl](http://toggl.com) is an "insanely simple time tracking" service.
+
+This specific library is a Python-based REST client to interface with the Toggle API utilizing [requests](http://docs.python-requests.org/en/latest/).
+
+This library is a pure api client to help other python apps interface with Toggl. I created this project primarily to help with a bigger internal project that I am doing at work while at the same time getting my feet wet in Python.
+
+# Others out there
+
+There is already a similar library, [toggl_target](https://github.com/mos3abof/toggl_target) though it is more of an application and the client api is not separate repo. Some ideas/concepts on the client api were taken from there but I had needed a client api only to help interface with my bigger app.
 
 # Usage
 
-This library is currently not in a Python PIP package yet. For now simply download to a location of your choice and do the following.
+The library is currently not in a Python PIP package yet. For now simply download to a location of your choice and do the following.
 
 ```python
 
-from toggl-python-api-client import TogglClientApi
+from toggl-python-api-client.api_client import TogglClientApi
 
 settings = {
     'token': 'xxx',
