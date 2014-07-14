@@ -1,4 +1,5 @@
 import requests
+import json
 
 
 class TogglClientApi:
@@ -90,7 +91,7 @@ class TogglClientApi:
         toggl_headers = {'content-type': 'application/json'}
 
         if method == "POST":
-            return False
+            response = self._do_post_query(api_endpoint, headers=toggl_headers, auth=toggl_auth, params=params)
         elif method == "GET":
             response = self._do_get_query(api_endpoint, headers=toggl_headers, auth=toggl_auth, params=params)
         else:
@@ -102,4 +103,10 @@ class TogglClientApi:
     def _do_get_query(url, headers, auth, params):
         response = requests.get(url, headers=headers, auth=auth, params=params)
 
+        return response
+
+    @staticmethod
+    def _do_post_query(url, headers, auth, params):
+        response = requests.post(url, headers=headers, auth=auth,
+                                 data=json.dumps(params))
         return response
