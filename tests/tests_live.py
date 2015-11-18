@@ -1,6 +1,6 @@
 import unittest
 import json
-from ..api_client import TogglClientApi
+from toggl.api_client import TogglClientApi
 
 
 class TogglClientApiLiveTests(unittest.TestCase):
@@ -21,7 +21,7 @@ class TogglClientApiLiveTests(unittest.TestCase):
 
     def test_api_client_instance_created(self):
         self.assertNotEqual(self.api, None)
-        
+
     def test_valid_toggl_base_url(self):
         self.assertEqual(self.api.api_base_url, 'https://www.toggl.com/api/v8')
 

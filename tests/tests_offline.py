@@ -1,7 +1,8 @@
 import unittest
 import httpretty
 import json
-from ..api_client import TogglClientApi
+from toggl.api_client import TogglClientApi
+
 
 class ToogleClientApiTests(unittest.TestCase):
 
@@ -33,7 +34,7 @@ class ToogleClientApiTests(unittest.TestCase):
         httpretty.disable()
         httpretty.reset()
 
-    def load_json_file(self, location, base_path='json_responses'):
+    def load_json_file(self, location, base_path='tests/json_responses'):
         file_contents = open(base_path+'/'+location+'.json')
         json_data = json.load(file_contents)
         file_contents.close()

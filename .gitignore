@@ -1,2 +1,13 @@
 *.pyc
 tests_live_config.json
+
+# Setuptools distribution folder.
+/dist/
+/build/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+
+# Others
+*.swp
+.DS_Store
