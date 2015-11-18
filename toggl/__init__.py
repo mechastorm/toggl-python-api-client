@@ -1,1 +1,1 @@
-from toggl_api import api_client
+from toggl import api_client

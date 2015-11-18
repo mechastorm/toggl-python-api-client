@@ -47,10 +47,13 @@ class TogglClientApi:
         return workspace_found
 
     def get_workspaces(self):
-        return self.query('/workspaces');
+        return self.query('/workspaces')
+
+    def get_projects(self, workspace_id):
+        return self.query('/workspaces/%i/projects' % workspace_id)
 
     def get_workspace_members(self, workspace_id):
-        response = self.query('/workspaces/'+str(workspace_id)+'/workspace_users');
+        response = self.query('/workspaces/'+str(workspace_id)+'/workspace_users')
         return response
 
     """
@@ -100,6 +103,7 @@ class TogglClientApi:
 
     @staticmethod
     def _do_get_query(url, headers, auth, params):
+        print url
         response = requests.get(url, headers=headers, auth=auth, params=params)
 
         return response
