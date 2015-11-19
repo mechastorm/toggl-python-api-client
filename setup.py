@@ -2,9 +2,9 @@ from setuptools import setup
 
 
 setup(name='python-toggl',
-      version='0.1.2',
+      version='0.1.3',
       description='Python Wrapper for Toggl API',
-      url='https://github.com/swappsco/python-toggl',
+      url='https://github.com/swappsco/toggl-python-api-client',
       author='mechastorm',
       author_email='dev@swapps.co',
       license='MIT',
