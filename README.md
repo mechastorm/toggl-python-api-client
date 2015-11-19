@@ -13,7 +13,11 @@ There is already a similar library, [toggl_target](https://github.com/mos3abof/t
 
 # Usage
 
-The library is currently not in a Python PIP package yet. For now simply download to a location of your choice and do the following.
+## Pypi Package
+    pip install python-toggl
+
+## Manual installation
+Download to a location of your choice and do the following.
 
 ```python
 
