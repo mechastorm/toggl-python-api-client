@@ -1,5 +1,5 @@
 import requests
-
+from datetime import date
 
 class TogglClientApi:
 
@@ -26,6 +26,8 @@ class TogglClientApi:
         self.api_report_base_url = self.build_api_url(self.credentials['base_url_report'], self.credentials['ver_report'])
         self.api_token = self.credentials['token']
         self.api_username = self.credentials['username']
+        self.user_agent = self.credentials['user_agent']
+        self.workspace_id = int(self.credentials['workspace_id'])
         return
 
     @staticmethod
@@ -49,8 +51,8 @@ class TogglClientApi:
     def get_workspaces(self):
         return self.query('/workspaces')
 
-    def get_projects(self, workspace_id):
-        return self.query('/workspaces/%i/projects' % workspace_id)
+    def get_projects(self):
+        return self.query('/workspaces/%i/projects' % self.workspace_id)
 
     def get_workspace_members(self, workspace_id):
         response = self.query('/workspaces/'+str(workspace_id)+'/workspace_users')
@@ -81,6 +83,26 @@ class TogglClientApi:
 
         return time_total
 
+    """
+    @param start_date datetime.date()
+    @param end_date datetime.date()
+    """""
+    def get_project_times(self, project_id, start_date, end_date):
+        params = {
+            'workspace_id': self.workspace_id,
+            'project_ids': project_id,
+            'since': start_date.strftime('%Y-%m-%d'),
+            'until': end_date.strftime('%Y-%m-%d'),
+            'user_agent': self.user_agent,
+            'grouping': 'users',
+            'subgrouping': 'projects'
+        }
+        time_entries_response = self.query_report('/details', params)
+
+        json_response = time_entries_response.json()
+
+        return json_response
+
     def query_report(self, url, params={}, method='GET'):
         return self._query(self.api_report_base_url, url, params, method)
 
@@ -104,6 +126,7 @@ class TogglClientApi:
     @staticmethod
     def _do_get_query(url, headers, auth, params):
         print url
+        print params
         response = requests.get(url, headers=headers, auth=auth, params=params)
 
         return response
